@@ -22,7 +22,24 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body style="background: linear-gradient(135deg, #1de9b6 0%, #1dc8e9 100%); min-height: 100vh; margin: 0; font-family: 'Segoe UI', Arial, sans-serif;">
+    <div class="landing-header" style="display: flex; justify-content: space-between; align-items: center; padding: 2rem 3rem 0 3rem; color: #fff;">
+      <span class="logo" style="font-size: 2rem; font-weight: bold; letter-spacing: 2px;">Logo.co</span>
+      <nav>
+        <a href="/" style="color: #fff; margin-left: 2rem; text-decoration: none; font-weight: 500; font-size: 1.1rem;">HOME</a>
+        <a href="/parties" style="color: #fff; margin-left: 2rem; text-decoration: none; font-weight: 500; font-size: 1.1rem;">PARTIES</a>
+        <a href="/schedules" style="color: #fff; margin-left: 2rem; text-decoration: none; font-weight: 500; font-size: 1.1rem;">SCHEDULES</a>
+        <a href="/senators" style="color: #fff; margin-left: 2rem; text-decoration: none; font-weight: 500; font-size: 1.1rem;">SENATORS</a>
+        <a href="/departments" style="color: #fff; margin-left: 2rem; text-decoration: none; font-weight: 500; font-size: 1.1rem;">DEPARTMENTS</a>
+      </nav>
+    </div>
+    <div style="min-height: 70vh;">
+      <%= yield %>
+    </div>
+    <div class="landing-footer" style="margin-top: 2rem; color: #fff; font-size: 1.5rem; text-align: center;">
+      <a href="#" style="color: #fff; margin: 0 0.7rem; text-decoration: none; font-size: 1.5rem;">&#xf09a;</a>
+      <a href="#" style="color: #fff; margin: 0 0.7rem; text-decoration: none; font-size: 1.5rem;">&#xf099;</a>
+      <a href="#" style="color: #fff; margin: 0 0.7rem; text-decoration: none; font-size: 1.5rem;">&#xf16d;</a>
+    </div>
   </body>
 </html>

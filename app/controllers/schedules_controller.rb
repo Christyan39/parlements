@@ -60,7 +60,6 @@ class SchedulesController < ApplicationController
   # GET /schedules/1/attendances
   def attendances
     @schedule = Schedule.find(params[:id])
-    @attendances = @schedule.attendances.includes(:senator)
     @senators = @schedule.department.senators
 
     @department_attendances = @senators.map do |senator|

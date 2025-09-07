@@ -1,0 +1,97 @@
+<style>
+  body {
+    background: linear-gradient(135deg, #1de9b6 0%, #1dc8e9 100%);
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+  }
+  .landing-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 3rem 0 3rem;
+    color: #fff;
+  }
+  .landing-header .logo {
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+  .landing-header nav a {
+    color: #fff;
+    margin-left: 2rem;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: color 0.2s;
+  }
+  .landing-header nav a:hover {
+    color: #ffd700;
+  }
+  .landing-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 70vh;
+    color: #fff;
+    text-align: center;
+  }
+  .landing-title {
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 4px;
+    margin-bottom: 1rem;
+  }
+  .landing-desc {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+    color: #e0f7fa;
+  }
+  .landing-btn {
+    padding: 0.8rem 2.5rem;
+    font-size: 1.2rem;
+    border: 2px solid #fff;
+    border-radius: 30px;
+    background: transparent;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    margin-bottom: 2rem;
+  }
+  .landing-btn:hover {
+    background: #fff;
+    color: #1dc8e9;
+  }
+  .landing-footer {
+    margin-top: 2rem;
+    color: #fff;
+    font-size: 1.5rem;
+  }
+  .landing-footer a {
+    color: #fff;
+    margin: 0 0.7rem;
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: color 0.2s;
+  }
+  .landing-footer a:hover {
+    color: #ffd700;
+  }
+</style>
+
+<div class="landing-main">
+  <div class="landing-title">LANDING PAGE</div>
+  <div class="landing-desc">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque suscipit tellus vitae purus dignissim, nec tincidunt neque condimentum. Nam nec ligula pretium mi interdum hendrerit in sit amet ligula.
+  </div>
+  <a class="landing-btn" href="<%= schedules_path %>">LEARN MORE</a>
+</div>
+
+<div class="landing-footer">
+  <a href="#"><i class="fa fa-facebook"></i> &#xf09a;</a>
+  <a href="#"><i class="fa fa-twitter"></i> &#xf099;</a>
+  <a href="#"><i class="fa fa-instagram"></i> &#xf16d;</a>
+</div>
