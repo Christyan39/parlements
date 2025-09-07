@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @senator %>
+
+<div>
+  <%= link_to "Edit this senator", edit_senator_path(@senator) %> |
+  <%= link_to "Back to senators", senators_path %>
+
+  <%= button_to "Destroy this senator", @senator, method: :delete %>
+</div>

@@ -1,0 +1,27 @@
+<div id="<%= dom_id senator %>">
+  <p>
+    <strong>Name:</strong>
+    <%= senator.name %>
+  </p>
+
+  <p>
+    <strong>Photo:</strong>
+    <img src="<%= senator.photo %>" alt="<%= senator.name %> Photo" style="max-width: 100px; max-height: 100px;">
+  </p>
+
+  <p>
+    <strong>Title:</strong>
+    <%= senator.title %>
+  </p>
+
+  <p>
+    <strong>Party:</strong>
+    <%= senator.party&.name || 'N/A' %>
+  </p>
+
+  <p>
+    <strong>Department:</strong>
+    <%= senator.department&.name || 'N/A' %>
+  </p>
+
+</div>

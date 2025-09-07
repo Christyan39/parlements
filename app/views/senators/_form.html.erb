@@ -1,0 +1,43 @@
+<%= form_with(model: senator) do |form| %>
+  <% if senator.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(senator.errors.count, "error") %> prohibited this senator from being saved:</h2>
+
+      <ul>
+        <% senator.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :photo, style: "display: block" %>
+    <%= form.text_field :photo %>
+  </div>
+
+
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :party_id, 'Party', style: "display: block" %>
+    <%= form.collection_select :party_id, Party.all, :id, :name, prompt: 'Select a party' %>
+  </div>
+
+  <div>
+    <%= form.label :department_id, 'Department', style: "display: block" %>
+    <%= form.collection_select :department_id, Department.all, :id, :name, prompt: 'Select a department' %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
