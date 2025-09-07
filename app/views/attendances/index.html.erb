@@ -1,0 +1,21 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Attendances" %>
+
+<h1>Attendances</h1>
+
+<div id="attendances">
+  <% @attendances.each do |attendance| %>
+      <p>
+      <strong>Senator:</strong>
+      <%= attendance.senator&.name || attendance.senator_id %>
+    </p>
+
+    <p>
+      <strong>Schedule:</strong>
+      <%= attendance.schedule&.name || attendance.schedule_id %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New attendance", new_attendance_path %>

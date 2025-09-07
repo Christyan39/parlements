@@ -1,0 +1,45 @@
+<%= form_with(model: attendance) do |form| %>
+  <% if attendance.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(attendance.errors.count, "error") %> prohibited this attendance from being saved:</h2>
+
+      <ul>
+        <% attendance.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :senator_id, style: "display: block" %>
+    <select name="attendance[senator_id]" id="attendance_senator_id">
+      <option value="">Select a senator</option>
+      <% Senator.all.each do |senator| %>
+        <option value="<%= senator.id %>" <%= 'selected' if attendance.senator_id == senator.id %>>
+          <%= senator.name %> <img src="<%= senator.photo %>" alt="<%= senator.name %>'s photo" style="max-width: 50px; max-height: 50px;" />
+        </option>
+      <% end %>
+    </select>
+    <style>
+      /* Optionally, you can style the select to make it more visually appealing */
+    </style>
+  </div>
+
+  <% if attendance.schedule_id.present? %>
+    <%= form.hidden_field :schedule_id %>
+    <div>
+      <%= form.label :schedule_name, 'Schedule', style: "display: block" %>
+      <%= text_field_tag :schedule_name, Schedule.find_by(id: attendance.schedule_id)&.name, disabled: true %>
+    </div>
+  <% else %>
+    <div>
+      <%= form.label :schedule_id, style: "display: block" %>
+      <%= form.text_field :schedule_id %>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

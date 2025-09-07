@@ -1,0 +1,18 @@
+<h1>Attendances for <%= @schedule.name %></h1>
+<table>
+  <thead>
+    <tr>
+      <th>Senator</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  
+    <% @department_attendances.each do |attendance| %>
+      <tr>
+        <td><%= attendance.senator&.name || attendance.senator_id %></td>
+    <td><%= attendance.presence == true ? 'Present' : 'Absent' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

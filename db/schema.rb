@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_09_07_140833) do
+ActiveRecord::Schema[8.0].define(version: 2025_09_07_150322) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  create_table "attendances", force: :cascade do |t|
+    t.bigint "senator_id", null: false
+    t.bigint "schedule_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["schedule_id"], name: "index_attendances_on_schedule_id"
+    t.index ["senator_id"], name: "index_attendances_on_senator_id"
+  end
 
   create_table "departments", force: :cascade do |t|
     t.string "name"
@@ -27,6 +36,15 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_07_140833) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "schedules", force: :cascade do |t|
+    t.string "name"
+    t.datetime "time", precision: nil
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "department_id", null: false
+    t.index ["department_id"], name: "index_schedules_on_department_id"
+  end
+
   create_table "senators", force: :cascade do |t|
     t.string "name"
     t.string "photo"
@@ -39,6 +57,9 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_07_140833) do
     t.index ["party_id"], name: "index_senators_on_party_id"
   end
 
+  add_foreign_key "attendances", "schedules"
+  add_foreign_key "attendances", "senators"
+  add_foreign_key "schedules", "departments"
   add_foreign_key "senators", "departments"
   add_foreign_key "senators", "parties"
 end
